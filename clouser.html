@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interview</title>
+  </head>
+  <body></body>
+</html>
+
+<script type="module">
+  //  Basic of closuer
+
+  // gobal scope
+  // function clouser() {
+  //   var myName = "jagdish";
+  //   // inner scope 2
+  //   function displayName() {
+  //     // inner scope
+  //     alert(myName);
+  //   }
+  //   displayName();
+  // }
+  // clouser();
+
+  // function makeFunc() {
+  //   var name = "Sonusingh";
+  //   function dispalyFuncNam() {
+  //     alert(name);
+  //   }
+  //   dispalyFuncNam();
+  // }
+  // makeFunc();
+
+  // Ques 1: What will be logged to console ?
+
+  // let count = 0;
+  // (function prinCount() {
+  //   if (count === 0) {
+  //     let count = 1;
+  //     console.log(count);
+  //   }
+  //   console.log(count);
+  // })();
+
+  // Ques 2: Write a function that would allow you to do this
+
+  // function createBase(num) {
+  //   return function (innerNum) {
+  //     console.log(innerNum + num);
+  //   };
+  // }
+
+  // var addSix = createBase(6);
+  // addSix(10);
+  // addSix(21);
+
+  // Ques 3 : Time optimization
+
+  // function find(index) {
+  //   let a = [];
+  //   for (let i = 0; i < 1000000; i++) {
+  //     a[i] = i * i;
+  //   }
+  //   console.log(a[index]);
+  // }
+
+  // console.time("6");
+  // find(3);
+  // console.timeEnd("6");
+  // console.time("12");
+  // find(2);
+  // console.timeEnd("12");
+
+  // // Type two this method
+
+  // function find(index) {
+  //   let a = [];
+  //   for (let i = 0; i < 1000000; i++) {
+  //     a[i] = i * i;
+  //   }
+
+  //   return function (index) {
+  //     console.log(a[index]);
+  //   };
+  // }
+
+  // const closure = find();
+  // console.time("6");
+  // closure(6);
+  // console.timeEnd("6");
+  // console.time("12");
+  // closure(50);
+  // console.timeEnd("12");
+
+  // Ques 4 : Block scope and setTimeout
+
+  // for (var i = 0; i <= 11; i++) {
+  //   function inner(i) {
+  //     setTimeout(function log() {
+  //       console.log(i);
+  //     }, i * 2000);
+  //   }
+  //   inner(i);
+  // }
+
+  // Same method
+
+  // for (let i = 10; i <= 100; i++) {
+  //   function inner(i) {
+  //     setTimeout(function log() {
+  //       console.log(i);
+  //     }, i * 2000);
+  //   }
+  //   inner(i);
+  // }
+
+  // Ques 5: How Would you use a closure to create a private counter ?
+
+  // function counter() {
+  //   var _counter = 0;
+
+  //   function add(increment) {
+  //     _counter += increment;
+  //   }
+
+  //   function retive() {
+  //     return "Counter = " + _counter;
+  //   }
+
+  //   return {
+  //     add,
+  //     retive,
+  //   };
+  // }
+
+  // const c = counter();
+  // c.add(5);
+  // c.add(10);
+
+  // c.retrive();
+
+  // Ques 6: What is Module Pattern ?
+
+  var Module = (function () {
+    function privateMethod() {
+      // do something
+      console.log("private");
+    }
+
+    return {
+      publicMethod: function () {
+        // can call privateMethod()
+        console.log("public");
+      },
+    };
+  })();
+
+  Module.privateMethod();
+  Module.publicMethod();
+</script>
